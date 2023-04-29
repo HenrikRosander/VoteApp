@@ -1,11 +1,11 @@
 const express = require("express");
-const Base = require("../models/base");
+const TripSuggestion = require("../models/TripSuggestion");
 const router = express.Router();
 
 //Get all data
 router.get("/", async (req, res) => {
   try {
-    const data = await Base.find();
+    const data = await TripSuggestion.find();
     res.json(data);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -18,18 +18,23 @@ router.get("/:id", async (req, res) => {
 
 //Create one
 router.post("/", async (req, res) => {
-  console.log(req.body);
-  const base = new Base({
-    name: req.body.name,
-    andAnother: req.body.andAnother,
-  });
+  if (req.query.city) {
+    const tripSuggestion = new TripSuggestion({
+      city: req.query.city,
+      image: req.query.image,
+      country: req.query.country,
+      votes: req.query?.votes,
+    });
 
-  //add into db
-  try {
-    const newBase = await base.save();
-    res.status(201).json(newBase);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
+    //add into db
+    try {
+      const newSuggestion = await tripSuggestion.save();
+      res.status(201).json(newSuggestion);
+    } catch (err) {
+      res.status(400).json({ message: err.message });
+    }
+  } else {
+    res.status(400).json({ message: "Please provide data" });
   }
 });
 
