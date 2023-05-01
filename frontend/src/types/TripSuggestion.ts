@@ -1,4 +1,4 @@
-import { Person } from "./person";
+import { Person } from "./Person";
 
 export interface TripSuggestion {
   _id: string;

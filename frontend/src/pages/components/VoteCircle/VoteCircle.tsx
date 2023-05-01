@@ -7,11 +7,11 @@ export const VoteCircle = ({ reference }: { reference: TripSuggestion }) => {
 
   const user = getCurrentUser();
 
-  const addVote = (e) => {
+  const addVote = (e: any) => {
     e.preventDefault();
 
     //add current user to trip suggestion
-    reference!.votes!.push(user);
+    // reference!.votes!.push(user);
     console.log(reference.city);
   };
   return (

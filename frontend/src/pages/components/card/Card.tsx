@@ -19,7 +19,7 @@ export const Card = ({ tripSuggestion }: { tripSuggestion: TripSuggestion }) => 
               {tripSuggestion.votes!.map((vote: Person) => {
                 console.log(vote);
                 return (
-                  <VoteContainer>
+                  <VoteContainer key={vote.name}>
                     <div key={vote.name}>
                       <img src={vote.image}></img>
                     </div>
