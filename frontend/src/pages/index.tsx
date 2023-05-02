@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Card from "./components/card";
-import { Hero } from "./components/Hero/Hero";
+import Hero from "./components/Hero/Hero";
 import { BigCardContainer } from "./index.styles";
 import { useEffect, useState } from "react";
 import { TripSuggestion } from "@/types/TripSuggestion";

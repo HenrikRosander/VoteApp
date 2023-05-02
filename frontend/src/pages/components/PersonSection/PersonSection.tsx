@@ -1,6 +1,6 @@
 import { PersonContainer, StyledFaPlus } from "./PersonSection.styles";
 
-export const PersonSection = () => {
+const PersonSection = () => {
   return (
     <PersonContainer>
       <p>Vem är du?</p>
@@ -13,3 +13,5 @@ export const PersonSection = () => {
     </PersonContainer>
   );
 };
+
+export default PersonSection;

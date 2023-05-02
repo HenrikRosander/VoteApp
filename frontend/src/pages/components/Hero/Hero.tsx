@@ -1,8 +1,8 @@
 import { FormEvent, useState } from "react";
 import { HeroText, StyledInput, TopContainer } from "./Hero.styles";
-import { PersonSection } from "../PersonSection/PersonSection";
+import PersonSection from "../PersonSection";
 
-export const Hero = () => {
+const Hero = () => {
   const [name, setName] = useState("");
 
   const eventHandler = (e: FormEvent<HTMLFormElement>) => {
@@ -26,3 +26,5 @@ export const Hero = () => {
     </div>
   );
 };
+
+export default Hero;
